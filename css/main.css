@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+body, html {
+    background-color: #222222;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    padding-top: 20px;
+}
+h1 {
+    font-family: 'Passion One', cursive;    
+    font-weight: 400;
+    font-size: 70px;
+}
+h2 {
+    font-family: 'Passion One', cursive;    
+    font-weight: 400;
+}
+img.icon {
+    max-width: 280px;
+    margin:20px;
+    margin-bottom: 15px;
+}
+button {
+    background-color: #193806;
+    color: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    border: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.primary {
+    background-color: #3e950c;
+    font-size: 22px;
+}
+.danger {
+    background-color: #bd1414;
+    font-size: 22px;
+    display: none;
+    margin: auto;
+}
+.started .danger {
+    display: block;
+}
+.buttons {
+    display: block;
+}
+.started .buttons {
+    display: none !important;
+}
+.btn-settings {
+    position: absolute;
+    margin: 15px;
+}
+.form {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 90%;
+    margin: auto;
+    border-radius: 6px;
+    padding: 20px;
+    font-size: 18px;
+    display: none;
+}
+label {
+    display: block;
+}
+input {
+    border-radius: 6px;
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+}
+.col {
+    text-align: left;
+    display: inline-block;
+}
+.form button {
+    padding: 10px;
+    font-size: 18px;
+}
+.files {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 30%;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    display: none;
+}
+.started .files {
+    display: block;
+}
+.started .options {
+    width: 70%;
+}
+a {
+    color: rgb(42, 102, 214);
+}
+.list {
+    width: 100%;
+    text-align: left;
+    margin-top: 20px;
+}
+.item {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    color: #000;
+    margin-bottom: 2px;
+}
+.item img {
+    float: right;
+}
+.started .icon {
+    display: none;
+}
+pre {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+    display: none;
+    max-width: 80%;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    max-height: 300px;
+    overflow: auto;
+}
+.started pre {
+    display: block;
+}

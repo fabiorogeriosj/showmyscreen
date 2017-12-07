@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ShowMyScreen</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <div class="options">
+      <h1>ShowMyScreen</h1>
+      <img class="icon" src="img/monitor.png">
+      <pre id="show-ips">
+      </pre>
+      <button class="danger" onclick="stop()">Stop screen sharing</button>
+      <div id="buttons-init" class="buttons">
+        <button class="primary" onclick="start()">Start screen sharing</button>
+        <img class="btn-settings" src="img/settings.png" onclick="showForm()">
+      </div>
+      <div id="form-settings" class="form">
+        <div class="col">
+          <label for="port">PORT:</label>
+          <input type="number" placeholder="Default: 80" id="port">
+        </div>
+        <div class="col">
+          <label for="port">FPS:</label>
+          <input type="number" placeholder="Default: 20" id="fps">
+        </div>
+        <div class="col">
+          <button class="primary" onclick="save()">Save</button>
+        </div>
+      </div>
+    </div>
+    <div id="dropZone" class="files">
+      <h2>Files sharing</h2>
+      <p>
+        <a href="#" onclick="shareFile()">Open file</a> or grad and drop file here.
+      </p>
+      <div id="list" class="list"></div>
+    </div>
+  </body>
+</html>
