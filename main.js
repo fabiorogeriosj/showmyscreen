@@ -13,7 +13,7 @@ function createWindow () {
     slashes: true
   }))
   win.setMenu(null)
-  if(process.argv.indexOf('--dev')) {
+  if(process.argv[2] === '--dev') {
     win.webContents.openDevTools()
   }
 
