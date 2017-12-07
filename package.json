@@ -2,9 +2,17 @@
   "name": "showmyfile",
   "version": "0.1.0",
   "description": "simple show files by socket",
-  "main": "main.js",
+  "main": "./main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js --dev",
+    "build-win": "electron-packager . showmyscreen --overwrite --ignore=dist --platform=win32 --arch=x64 --prune=true --out=dist --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName='showmyscreen'",
+    "zip-win": "bestzip dist/showmyscreen-win32-x64.zip dist/showmyscreen-win32-x64"
+  },
+  "directories": {
+    "app": "./"
+  },
+  "devDependencies": {
+    "electron": "~1.7.8"
   },
   "dependencies": {
     "body-parser": "~1.11.0",

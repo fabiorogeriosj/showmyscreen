@@ -62,7 +62,7 @@ function runApp(port) {
     var fps = 50
     if(localStorage.getItem('fps')) fps = localStorage.getItem('fps')
     runShowMyScreen = spawn('node', ['app.js',port, fps], {
-        cwd: process.cwd()
+        cwd: __dirname
     })
     runShowMyScreen.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`)
@@ -89,7 +89,7 @@ function runApp(port) {
             type: 'error',
             title: 'Error',
             message: `Could not start application on port: ${port}`,
-            detail: JSON.stringify(data)
+            detail: data.toString()
         })
     })
 
@@ -99,7 +99,7 @@ function runApp(port) {
 }
 
 function getFilesDownloads() {
-    var files = util.dirTree(path.join(process.cwd(), 'www', 'downloads'), true)
+    var files = util.dirTree(path.join(__dirname, 'www', 'downloads'), true)
     var list = document.getElementById('list')
     list.innerHTML = ''
     for(o of files.children) {
@@ -118,7 +118,7 @@ function removeFile (file) {
     var fileName = file.split('downloads')[1]
     fileName = fileName.replace('\\', '')
     fileName = fileName.replace('/', '')
-    var p = path.join(process.cwd(), 'www', 'downloads', fileName)
+    var p = path.join(__dirname, 'www', 'downloads', fileName)
     fs.unlinkSync(p)
     getFilesDownloads()
 }
@@ -157,7 +157,7 @@ function shareFile() {
     }, (data) => {
         for(d of data){
             var name = path.basename(d)
-            var fileTo = path.join(process.cwd(), 'www', 'downloads', name)
+            var fileTo = path.join(__dirname, 'www', 'downloads', name)
             fs.createReadStream(d).pipe(fs.createWriteStream(fileTo))
         }
         getFilesDownloads()
@@ -178,7 +178,7 @@ function dropZone() {
 
         for (let f of e.dataTransfer.files) {
             var name = path.basename(f.path)
-            var fileTo = path.join(process.cwd(), 'www', 'downloads', name)
+            var fileTo = path.join(__dirname, 'www', 'downloads', name)
             fs.createReadStream(f.path).pipe(fs.createWriteStream(fileTo))
         }
         getFilesDownloads()

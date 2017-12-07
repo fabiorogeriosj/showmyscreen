@@ -13,7 +13,9 @@ function createWindow () {
     slashes: true
   }))
   win.setMenu(null)
-  win.webContents.openDevTools()
+  if(process.argv.indexOf('--dev')) {
+    win.webContents.openDevTools()
+  }
 
   win.on('closed', () => {
     win = null

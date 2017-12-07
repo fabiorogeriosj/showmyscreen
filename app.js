@@ -42,7 +42,7 @@ getScreen();
 //Socket
 io.on('connection', function (socket) {});
 
-fs.watch(path.join(process.cwd(), 'www', 'downloads'), function (event, filename) {
+fs.watch(path.join(__dirname, 'www', 'downloads'), function (event, filename) {
   io.sockets.emit('filechangedownload', { });
 });
 
@@ -54,7 +54,7 @@ app.get('/', function(req, res) {
 	res.sendfile(FRONTEND_PATH+'/index.html');
 });
 app.post('/getfilesdownload', function(req, res){
-  res.jsonp(util.dirTree(path.join(process.cwd(), 'www', 'downloads'), true));
+  res.jsonp(util.dirTree(path.join(__dirname, 'www', 'downloads'), true));
 });
 app.post('/getfile', function(req, res){
 	if(req.body.file){
