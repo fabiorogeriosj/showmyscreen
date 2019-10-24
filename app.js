@@ -1,12 +1,11 @@
-var express = require('express')
-var app = express()
-var server = require('http').Server(app)
-var io = require('socket.io')(server)
-var fs = require('fs')
-var path = require('path')
-var os = require('os')
-var exec = require('child_process').exec
-var child
+const express = require('express')
+const app = express()
+const server = require('http').Server(app)
+const io = require('socket.io')(server)
+const fs = require('fs')
+const path = require('path')
+const exec = require('child_process').exec
+let child
 const imagemin = require('imagemin')
 const imageminMozjpeg = require('imagemin-mozjpeg')
 const imageminPngquant = require('imagemin-pngquant')
@@ -15,12 +14,12 @@ const util = require('./util')
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-var port = process.argv[2]
-var timeGetScreen = process.argv[3]
+const port = process.argv[2]
+const timeGetScreen = process.argv[3]
 
 function getScreen () {
   if (process.platform !== 'linux') {
-    var cmd = __dirname + '/cmdcapture.fbi /f screen.png'
+    const cmd = __dirname + '/cmdcapture.fbi /f screen.png'
     child = exec(cmd, function (error, stdout, stderr) {
       imagemin(['./screen.png'], './www/images', {
         plugins: [
@@ -49,7 +48,7 @@ fs.watch(path.join(__dirname, 'www', 'downloads'), function (event, filename) {
 })
 
 process.setMaxListeners(0)
-var FRONTEND_PATH = __dirname + '/www'
+const FRONTEND_PATH = __dirname + '/www'
 app.use(express.static(FRONTEND_PATH))
 
 app.get('/', function (req, res) {
