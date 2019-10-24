@@ -2,7 +2,6 @@ var express = require('express')
 var app = express()
 var server = require('http').Server(app)
 var io = require('socket.io')(server)
-var bodyParser = require('body-parser')
 var fs = require('fs')
 var path = require('path')
 var os = require('os')
@@ -13,8 +12,8 @@ const imageminMozjpeg = require('imagemin-mozjpeg')
 const imageminPngquant = require('imagemin-pngquant')
 const util = require('./util')
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 var port = process.argv[2]
 var timeGetScreen = process.argv[3]
